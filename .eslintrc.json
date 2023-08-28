@@ -1,3 +1,75 @@
 {
-  "extends": "next/core-web-vitals"
+  "plugins": [
+    "import",
+    "unused-imports"
+  ],
+  "extends": [
+    "next/core-web-vitals",
+    "airbnb",
+    "plugin:prettier/recommended"
+  ],
+  "rules": {
+    "no-console": [
+      "warn",
+      {
+        "allow": [
+          "warn",
+          "error"
+        ]
+      }
+    ],
+    "unused-imports/no-unused-imports": "warn",
+    "react/react-in-jsx-scope": "off",
+    "react/jsx-props-no-spreading": "off",
+    "react/require-default-props": "off",
+    "import/order": [
+      "error",
+      {
+        "groups": [
+          "builtin",
+          "external",
+          "internal",
+          [
+            "sibling",
+            "parent"
+          ],
+          "index",
+          "unknown"
+        ],
+        "newlines-between": "always",
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        }
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": "**/*.+(ts|tsx)",
+      "parser": "@typescript-eslint/parser",
+      "parserOptions": {
+        "project": "./tsconfig.json"
+      },
+      "plugins": [
+        "@typescript-eslint"
+      ],
+      "extends": [
+        "plugin:@typescript-eslint/recommended",
+        "airbnb-typescript",
+        "plugin:prettier/recommended"
+      ],
+      "rules": {
+        "@typescript-eslint/no-use-before-define": "off",
+        "@typescript-eslint/quotes": [
+          2,
+          "backtick",
+          {
+            "avoidEscape": true
+          }
+        ],
+        "@typescript-eslint/no-unused-vars": "warn"
+      }
+    }
+  ]
 }
