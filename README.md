@@ -2,7 +2,7 @@
 
 ## Prerequisite
 
-- VScode (with `eslint` plugin installed)
+- VScode (with `ESlint`, `Tailwind CSS IntelliSense` plugin installed)
 - Node.js `v16+`
 - Yarn classic `v1.22+`
 
