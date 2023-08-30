@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import "./landing.scss";
+@import "./header.scss";
+@import "./stars.scss";
+@import "./fonts.scss";
+:root {
+    --foreground-rgb: 0, 0, 0;
+    --background-start-rgb: 214, 219, 220;
+    --background-end-rgb: 255, 255, 255;
+    --main-bg-color: #000000;
+    --point-color: #CDFF7A;
+    --font-emphasis: "Voyager";
+    --font-normal: "Pretendard";
+}
+
+@media (prefers-color-scheme: dark) {
+     :root {
+        --foreground-rgb: 255, 255, 255;
+        --background-start-rgb: 0, 0, 0;
+        --background-end-rgb: 0, 0, 0;
+    }
+}
+
+body {
+    color: whitesmoke;
+    background: var(--main-bg-color);
+    overflow: hidden;
+}

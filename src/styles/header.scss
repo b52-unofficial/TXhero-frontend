@@ -1,0 +1,36 @@
+.header {
+    font-family: "Voyager";
+    background-color: black;
+    width: 100vw;
+    height: 100px;
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    text-align: center;
+    &__logo {
+        padding: 20px;
+        grid-area: 1 / 2 / 2 / 3;
+    }
+    &__howtouse {
+        padding: 20px;
+        grid-area: 1 / 4 / 2 / 5;
+    }
+    &__FAQ {
+        padding: 20px;
+        grid-area: 1 / 5 / 2 / 6;
+    }
+    &__builder {
+        padding: 20px;
+        grid-area: 1 / 6 / 2 / 7;
+    }
+    &__connectwallet {
+        padding: 20px;
+        grid-area: 1 / 8 / 2 / 9;
+    }
+}
+
+.connectWallet {
+    background-color: var(--point-color);
+    color: black;
+    padding: 6px 10px;
+    border-radius: 20px;
+}
