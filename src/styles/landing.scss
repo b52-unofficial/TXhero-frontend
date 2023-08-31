@@ -20,7 +20,7 @@
     &__hero {
         font-family: "Voyager";
         font-size: 160px;
-        color: var(--point-color);
+        color: white;
         -webkit-animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
         animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
     }
@@ -137,7 +137,7 @@
         background-color: white;
         width: 1000px;
         height: 300px;
-        border-radius: 100px;
+        border-radius: 25px;
     }
     &__builderQ {
         position: absolute;
@@ -153,6 +153,28 @@
         top: -100px;
         left: 500px;
         z-index: 3;
+    }
+    &__rpc {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+    &__connectContainer {
+        background-color: white;
+        width: 600px;
+        height: 300px;
+        margin: 20px;
+        border-radius: 25px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    &__rpctitle {
+        color: black;
+        font-family: "Voyager";
+        font-size: 30px;
     }
 }
 
@@ -175,12 +197,12 @@
     background-color: white;
     width: 320px;
     height: 320px;
-    border-radius: 25%;
+    border-radius: 25px;
 }
 
 .halo {
-    width: 1000px;
-    height: 1000px;
+    width: 800px;
+    height: 800px;
     background: radial-gradient(circle, rgba(255, 255, 255, 1) 33%, rgba(0, 0, 0, 0)60%);
     border-radius: 100%;
 }
