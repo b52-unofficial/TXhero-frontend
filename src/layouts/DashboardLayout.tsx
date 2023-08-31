@@ -1,8 +1,9 @@
 import Link from 'next/link';
+import { PropsWithChildren } from 'react';
 
-import ConnectWalletButton from './ConnectWalletButton';
+import ConnectWalletButton from '@/components/ConnectWalletButton';
 
-export default function Header() {
+function Header() {
   return (
     <nav className="header">
       <div className="header__logo">
@@ -15,5 +16,14 @@ export default function Header() {
         <ConnectWalletButton />
       </div>
     </nav>
+  );
+}
+
+export default function DashboardLayout({ children }: PropsWithChildren) {
+  return (
+    <main>
+      <Header />
+      {children}
+    </main>
   );
 }
