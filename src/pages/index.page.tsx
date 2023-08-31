@@ -1,12 +1,11 @@
 import Image from 'next/image';
 import CountUp from 'react-countup';
 
-import Header from '@/components/header';
+import BasicLayout from '@/layouts/BasicLayout';
 
 export default function Home() {
   return (
-    <main>
-      <Header />
+    <BasicLayout>
       <div className="landing">
         <div id="stars" />
         <div id="stars2" />
@@ -121,6 +120,6 @@ export default function Home() {
           </div>
         </div>
       </div>
-    </main>
+    </BasicLayout>
   );
 }
