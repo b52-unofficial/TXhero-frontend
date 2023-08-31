@@ -24,7 +24,8 @@
 }
 
 body {
+    width: 100vw;
+    height: 100vh;
     color: whitesmoke;
     background: var(--main-bg-color);
-    overflow: hidden;
 }

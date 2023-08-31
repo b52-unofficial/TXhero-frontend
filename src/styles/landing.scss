@@ -6,6 +6,17 @@
         flex-direction: column;
         text-align: center;
     }
+    &__int {
+        margin-top: -250px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        position: relative;
+    }
+    &__landinghero {
+        position: absolute;
+    }
     &__hero {
         font-family: "Voyager";
         font-size: 160px;
@@ -13,6 +24,165 @@
         -webkit-animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
         animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
     }
+    &__intro2 {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 20%;
+    }
+    &__intro3 {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    &__words2 {
+        font-family: "Voyager";
+        font-size: 76px;
+        text-align: center;
+        margin: -20px;
+    }
+    &__words {
+        font-family: "Voyager";
+        font-size: 30px;
+        text-align: center;
+    }
+    &__nums {
+        font-family: "Voyager";
+        display: flex;
+        flex-direction: row;
+    }
+    &__num {
+        font-size: 200px;
+    }
+    &__eth {
+        font-size: 50px;
+    }
+    &__intro4 {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: 1fr;
+        margin-top: 100px;
+        margin-bottom: 150px;
+    }
+    &__img1 {
+        grid-area: 1 / 1 / 2 / 2;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    &__img2 {
+        grid-area: 1 / 2 / 2 / 3;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    &__img3 {
+        grid-area: 1 / 3 / 2 / 4;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    &__imgcontainer {
+        height: fit-content;
+        position: relative;
+    }
+    &__wallet {
+        position: absolute;
+        z-index: 3;
+        bottom: -100px;
+    }
+    &__tx {
+        position: absolute;
+        z-index: 3;
+        bottom: -100px;
+    }
+    &__refund {
+        position: absolute;
+        z-index: 3;
+        bottom: -100px;
+    }
+    &__words4 {
+        font-family: "Voyager";
+        color: black;
+        font-size: 30px;
+        position: absolute;
+        z-index: 2;
+        text-align: center;
+        top: 40px;
+        width: 320px;
+    }
+    &__intro5 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    &__dashboard {
+        margin: 100px;
+    }
+    &__intro6 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin-top: 150px;
+        margin-bottom: 150px;
+    }
+    &__builderContainer {
+        position: relative;
+    }
+    &__builderWhite {
+        background-color: white;
+        width: 1000px;
+        height: 300px;
+        border-radius: 100px;
+    }
+    &__builderQ {
+        position: absolute;
+        color: black;
+        font-family: "Voyager";
+        font-size: 45px;
+        text-align: left;
+        left: 150px;
+        top: 50px;
+    }
+    &__builder {
+        position: absolute;
+        top: -100px;
+        left: 500px;
+        z-index: 3;
+    }
+}
+
+.builderBTN {
+    background-color: var(--point-color);
+    color: black;
+    font-family: "Voyager";
+    padding: 8px 10px;
+    border-radius: 20px;
+}
+
+.builderBTN:disabled {
+    background-color: gray;
+    position: absolute;
+    top: 200px;
+    left: 200px;
+}
+
+.white {
+    background-color: white;
+    width: 320px;
+    height: 320px;
+    border-radius: 25%;
+}
+
+.halo {
+    width: 1000px;
+    height: 1000px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 1) 33%, rgba(0, 0, 0, 0)60%);
+    border-radius: 100%;
 }
 
 @-webkit-keyframes tracking-in-expand {
