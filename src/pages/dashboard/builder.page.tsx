@@ -1,7 +1,8 @@
 import Image from 'next/image';
-import CountUp from 'react-countup';
 
-export default function Home() {
+import Connectwallet from '@/components/connectwallet';
+
+export default function BuilderDashboard() {
   return (
     <main>
       <div className="landing">
@@ -30,8 +31,8 @@ export default function Home() {
             className="landing__landinghero"
             src="/images/landinghero.png"
             alt="landing illustration"
-            width={800}
-            height={800}
+            width={1000}
+            height={1000}
           />
           <div className="halo" />
         </div>
@@ -92,14 +93,7 @@ export default function Home() {
             width={800}
             height={800}
           />
-        </div>
-        <div className="landing__rpc">
-          <div className="landing__connectContainer">
-            <h1 className="landing__rpctitle">Click to add to your client</h1>
-          </div>
-          <div className="landing__connectContainer">
-            <h1 className="landing__rpctitle">Connect Manually</h1>
-          </div>
+          <Connectwallet />
         </div>
         <div className="landing__intro6">
           <div className="landing__builderContainer">
