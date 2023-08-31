@@ -1,9 +1,12 @@
 import Image from 'next/image';
 import CountUp from 'react-countup';
 
+import Header from '@/components/header';
+
 export default function Home() {
   return (
     <main>
+      <Header />
       <div className="landing">
         <div id="stars" />
         <div id="stars2" />
