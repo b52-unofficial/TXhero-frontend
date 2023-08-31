@@ -98,9 +98,23 @@ export default function Home() {
         <div className="landing__rpc">
           <div className="landing__connectContainer">
             <h1 className="landing__rpctitle">Click to add to your client</h1>
+            <h2 className="landing__rpctitle2">MEV Blocker (Ethereum Mainnet)</h2>
+            <button className="landing__clickConnect">Add to Client</button>
           </div>
           <div className="landing__connectContainer">
-            <h1 className="landing__rpctitle">Connect Manually</h1>
+            <h1 className="landing__rpctitle">Or manually add:</h1>
+            <div className="rpcInfo">
+              <div className="rpcInfo__row1">Network Name</div>
+              <div className="rpcInfo__col1">MEV Blocker (Ethereum Mainnet)</div>
+              <div className="rpcInfo__row2">New RPC URL</div>
+              <div className="rpcInfo__col2">https://rpc.mevblocker.io</div>
+              <div className="rpcInfo__row3">Chain ID</div>
+              <div className="rpcInfo__col3">1</div>
+              <div className="rpcInfo__row4">Currency Symbol</div>
+              <div className="rpcInfo__col4">ETH</div>
+              <div className="rpcInfo__row5">Block Explorer URL</div>
+              <div className="rpcInfo__col5">https://etherscan.io</div>
+            </div>
           </div>
         </div>
         <div className="landing__intro6">
