@@ -158,6 +158,7 @@ export default function Home() {
               Block builder?
             </h2>
             <div className="landing__builderWhite" />
+            <button className="builderBTN">Go to builder page</button>
             <Image
               className="landing__builder"
               src="/images/builder.png"

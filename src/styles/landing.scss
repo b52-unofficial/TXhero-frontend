@@ -214,18 +214,28 @@
 }
 
 .builderBTN {
-    background-color: var(--point-color);
+    background-color: gray;
     color: black;
     font-family: "Voyager";
     padding: 8px 10px;
     border-radius: 20px;
+    position: absolute;
+    bottom: 40px;
+    left: 140px;
+    width: 260px;
 }
 
-.builderBTN:disabled {
-    background-color: gray;
+.builderBTN:hover {
+    background-color: lightgray;
+    color: black;
+    font-family: "Voyager";
+    padding: 8px 10px;
+    border-radius: 20px;
     position: absolute;
-    top: 200px;
-    left: 200px;
+    bottom: 40px;
+    left: 140px;
+    width: 260px;
+    cursor: not-allowed;
 }
 
 .rpcInfo {
@@ -271,6 +281,10 @@
         grid-area: 5 / 2 / 6/ 3;
         font-weight: bold;
     }
+}
+
+.copy {
+    margin-left: 10px;
 }
 
 .white {
