@@ -5,7 +5,7 @@
   ],
   "extends": [
     "next/core-web-vitals",
-    "airbnb",
+    // "airbnb",
     "plugin:prettier/recommended"
   ],
   "rules": {

@@ -5,7 +5,7 @@ import { toast } from 'react-toastify';
 import BasicLayout from '@/layouts/BasicLayout';
 
 export default function Home() {
-  function copyText(entryText) {
+  function copyText(entryText: string) {
     navigator.clipboard.writeText(entryText);
     toast.success(`copied to clipboard!`);
   }
@@ -106,7 +106,7 @@ export default function Home() {
         <div className="landing__rpc">
           <div className="landing__connectContainer">
             <h1 className="landing__rpctitle">Click to add to your client</h1>
-            <h2 className="landing__rpctitle2">MEV Blocker (Ethereum Mainnet)</h2>
+            <h2 className="landing__rpctitle2">Tx Hero (Ethereum Goerli Testnet)</h2>
             <button className="landing__clickConnect">Add to Client</button>
           </div>
           <div className="landing__connectContainer">
@@ -114,8 +114,8 @@ export default function Home() {
             <div className="rpcInfo">
               <div className="rpcInfo__row1">Network Name</div>
               <div className="rpcInfo__col1">
-                MEV Blocker (Ethereum Mainnet){` `}
-                <button onClick={() => copyText(`MEV Blocker (Ethereum Mainnet)`)}>
+                Tx Hero (Ethereum Goerli Testnet)
+                <button onClick={() => copyText(`Tx Hero (Ethereum Goerli Testnet)`)}>
                   <Image className="copy" src="/images/copy.svg" alt="copy" width={15} height={15} />
                 </button>
               </div>
@@ -129,22 +129,22 @@ export default function Home() {
               </div>
               <div className="rpcInfo__row3">Chain ID</div>
               <div className="rpcInfo__col3">
-                1
-                <button onClick={() => copyText(`1`)}>
+                5
+                <button onClick={() => copyText(`5`)}>
                   <Image className="copy" src="/images/copy.svg" alt="copy" width={15} height={15} />
                 </button>
               </div>
               <div className="rpcInfo__row4">Currency Symbol</div>
               <div className="rpcInfo__col4">
-                ETH
-                <button onClick={() => copyText(`ETH`)}>
+                GoerliETH
+                <button onClick={() => copyText(`GoerliETH`)}>
                   <Image className="copy" src="/images/copy.svg" alt="copy" width={15} height={15} />
                 </button>
               </div>
               <div className="rpcInfo__row5">Block Explorer URL</div>
               <div className="rpcInfo__col5">
-                https://etherscan.io
-                <button onClick={() => copyText(`https://etherscan.io`)}>
+                https://goerli.etherscan.io/
+                <button onClick={() => copyText(`https://goerli.etherscan.io/`)}>
                   <Image className="copy" src="/images/copy.svg" alt="copy" width={15} height={15} />
                 </button>
               </div>

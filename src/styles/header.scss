@@ -9,22 +9,16 @@
     &__logo {
         padding: 20px;
         grid-area: 1 / 2 / 2 / 3;
-    }
-    &__howtouse {
-        padding: 20px;
-        grid-area: 1 / 4 / 2 / 5;
-    }
-    &__FAQ {
-        padding: 20px;
-        grid-area: 1 / 5 / 2 / 6;
-    }
-    &__builder {
-        padding: 20px;
-        grid-area: 1 / 6 / 2 / 7;
+        font-size: 30px;
+        color: var(--point-color)
     }
     &__connectwallet {
         padding: 20px;
         grid-area: 1 / 8 / 2 / 9;
+    }
+    &__FAQ {
+        grid-area: 1 / 5 / 2 / 6;
+        padding: 20px;
     }
 }
 
@@ -34,4 +28,40 @@
     padding: 6px 10px;
     border-radius: 20px;
     font-family: "Voyager";
+}
+
+.dropdown {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: "Voyager";
+    background-color: rgba(255, 255, 255, 0.3);
+    color: black;
+    width: 300px;
+    height: 150px;
+    border-radius: 25px;
+    &__dashboard {
+        width: 250px;
+        height: 50px;
+        margin: 10px;
+        border-radius: 25px;
+        background-color: var(--point-color);
+        text-align: center;
+    }
+    &__dashboard:hover {
+        cursor: pointer;
+    }
+    &__disconnect {
+        text-align: center;
+        width: 250px;
+        height: 50px;
+        margin: 10px;
+        border-radius: 25px;
+        background-color: white;
+        border: var(--point-color) 2px solid;
+    }
+    &__disconnect:hover {
+        cursor: pointer;
+    }
 }

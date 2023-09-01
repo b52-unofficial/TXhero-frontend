@@ -13,6 +13,7 @@
     "yarn": ">= 1.22"
   },
   "dependencies": {
+    "@nextui-org/react": "^2.1.7",
     "@reduxjs/toolkit": "^1.9.5",
     "@web3-react/core": "^8.0.36-beta.0",
     "@web3-react/metamask": "^8.0.31-beta.0",
