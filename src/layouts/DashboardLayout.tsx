@@ -3,15 +3,16 @@ import { PropsWithChildren } from 'react';
 
 import ConnectWalletButton from '@/components/ConnectWalletButton';
 
-function Header() {
+interface HeaderProps {
+  title: string;
+}
+function Header({ title }: HeaderProps) {
   return (
     <nav className="header">
       <div className="header__logo">
         <Link href="/"> TXhero</Link>
       </div>
-      <div className="header__howtouse">How to use</div>
-      <div className="header__FAQ">FAQ</div>
-      <div className="header__builder">Block builder?</div>
+      <div className="header__FAQ">{title}</div>
       <div className="header__connectwallet">
         <ConnectWalletButton />
       </div>
@@ -19,10 +20,10 @@ function Header() {
   );
 }
 
-export default function DashboardLayout({ children }: PropsWithChildren) {
+export default function DashboardLayout({ children, title }: PropsWithChildren & HeaderProps) {
   return (
-    <main>
-      <Header />
+    <main className="min-h-screen flex flex-col">
+      <Header title={title} />
       {children}
     </main>
   );

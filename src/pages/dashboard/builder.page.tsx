@@ -1,5 +1,5 @@
-import BasicLayout from '@/layouts/BasicLayout';
+import DashboardLayout from '@/layouts/DashboardLayout';
 
 export default function BuilderDashboard() {
-  return <BasicLayout />;
+  return <DashboardLayout title="Builder Dashboard" />;
 }
