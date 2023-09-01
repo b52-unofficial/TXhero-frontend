@@ -17,6 +17,9 @@ export default function UserDashboard() {
     <DashboardLayout title="User Dashboard">
       {isActive ? (
         <div className="px-48">
+          <div id="stars" />
+          <div id="stars2" />
+          <div id="stars3" />
           <div className="py-24 sm:py-32">
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
               <CardContainer>

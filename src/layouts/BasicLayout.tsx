@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import { PropsWithChildren } from 'react';
 
@@ -25,9 +26,15 @@ function Footer() {
       </div>
       <div className="footer__line">Saving the day, one transaction at a time</div>
       <div className="footer__info">
-        <div className="footer__logos">twitter</div>
-        <div className="footer__logos">twitter</div>
-        <div className="footer__logos">twitter</div>
+        <div className="footer__logos">
+          <Image src="/images/discord.svg" width={48} height={48} alt="logo" />
+        </div>
+        <div className="footer__logos">
+          <Image src="/images/telegram.svg" width={48} height={48} alt="logo" />
+        </div>
+        <div className="footer__logos">
+          <Image src="/images/twitter.svg" width={48} height={48} alt="logo" />
+        </div>
       </div>
     </div>
   );

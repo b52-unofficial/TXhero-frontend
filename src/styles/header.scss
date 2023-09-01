@@ -106,4 +106,10 @@
         justify-content: center;
         align-items: center;
     }
+    &__logos {
+        margin-left: 20px;
+    }
+    &__logos:hover {
+        cursor: not-allowed;
+    }
 }
