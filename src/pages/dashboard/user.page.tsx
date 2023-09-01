@@ -39,9 +39,13 @@ export default function UserDashboard() {
               </thead>
               <tbody>
                 {txData?.map((tx) => (
-                  <tr>
+                  <tr key={tx.txHash}>
                     <td>{tx.id}</td>
-                    <td>{tx.txHash}</td>
+                    <td>
+                      <a href={tx.txHash} target="_blank" rel="noreferrer">
+                        {tx.txHash}
+                      </a>
+                    </td>
                     <td>{dayjs(tx.timestamp).format(`YYYY-MM-DD HH:mm:ss`)}</td>
                     <td>{tx.status}</td>
                     <td>{tx.rewardAmt} ETH</td>
