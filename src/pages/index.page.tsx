@@ -168,7 +168,6 @@ export default function Home() {
             />
           </div>
         </div>
-        <div className="Footer" />
       </div>
     </BasicLayout>
   );

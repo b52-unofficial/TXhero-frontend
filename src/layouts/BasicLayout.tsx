@@ -17,11 +17,28 @@ function Header() {
   );
 }
 
+function Footer() {
+  return (
+    <div className="footer">
+      <div className="footer__logo">
+        <Link href="/">TXhero</Link>
+      </div>
+      <div className="footer__line">Saving the day, one transaction at a time</div>
+      <div className="footer__info">
+        <div className="footer__logos">twitter</div>
+        <div className="footer__logos">twitter</div>
+        <div className="footer__logos">twitter</div>
+      </div>
+    </div>
+  );
+}
+
 export default function BasicLayout({ children }: PropsWithChildren) {
   return (
     <main>
       <Header />
       {children}
+      <Footer />
     </main>
   );
 }
