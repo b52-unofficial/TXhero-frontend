@@ -23,11 +23,17 @@
 }
 
 .connectWallet {
-    background-color: var(--point-color);
-    color: black;
+    background-color: black;
+    border: var(--point-color) 2px solid;
+    color: white;
     padding: 6px 10px;
     border-radius: 20px;
     font-family: "Voyager";
+}
+
+.connectWallet:hover {
+    background-color: var(--point-color);
+    color: black;
 }
 
 .dropdown {
