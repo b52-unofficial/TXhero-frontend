@@ -19,11 +19,13 @@ export default function Home() {
 
         <div className="landing__intro2">
           <div className="landing__nums">
-            <CountUp className="landing__num" end={28} />
+            <h1 className="landing__numtitle">Average amount of refunds per user</h1>
+            <CountUp className="landing__num" end={12} />
             <h3 className="landing__eth">ETH</h3>
           </div>
           <div className="landing__nums">
-            <CountUp className="landing__num" end={100} />
+            <h1 className="landing__numtitle">ETH refunded today</h1>
+            <CountUp className="landing__num" end={73} />
             <h3 className="landing__eth">ETH</h3>
           </div>
         </div>
@@ -133,6 +135,7 @@ export default function Home() {
             />
           </div>
         </div>
+        <div className="Footer" />
       </div>
     </BasicLayout>
   );
