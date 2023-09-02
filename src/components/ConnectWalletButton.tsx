@@ -1,7 +1,25 @@
 import { Dropdown, DropdownTrigger, DropdownItem, DropdownMenu } from '@nextui-org/react';
 import { useWeb3React } from '@web3-react/core';
+import Image from 'next/image';
 import Link from 'next/link';
-import { useCallback } from 'react';
+import React, { ButtonHTMLAttributes, useCallback } from 'react';
+
+import svgChevronDown from '../../public/icons/ChevronDown.svg';
+import imgPlaceholder from '../../public/images/profile-placeholder.png';
+
+const StyledButton = React.forwardRef<HTMLButtonElement, ButtonHTMLAttributes<HTMLButtonElement>>(
+  ({ children, className, ...props }, ref) => (
+    <button
+      ref={ref}
+      type="button"
+      className="px-4 py-2 font-sans font-semibold text-sm bg-primary-400 text-black rounded-[10px] shadow-sm"
+      {...props}
+    >
+      {children}
+    </button>
+  ),
+);
+StyledButton.displayName = `StyledButton`;
 
 export default function ConnectWalletButton() {
   const { connector, account, isActive } = useWeb3React();
@@ -36,9 +54,17 @@ export default function ConnectWalletButton() {
   return account ? (
     <Dropdown>
       <DropdownTrigger>
-        <button type="button" className="connectWallet">
+        <StyledButton>
+          <Image
+            className="inline-block rounded-full ring-2 ring-white mr-2"
+            src={imgPlaceholder}
+            width={22}
+            height={22}
+            alt=""
+          />
           {account.substring(0, 6)}...{account.substring(account.length - 4)}
-        </button>
+          <Image src={svgChevronDown} className="inline-block ml-2" width={8} height={8} alt="" />
+        </StyledButton>
       </DropdownTrigger>
       <DropdownMenu className="dropdown" aria-label="Static Actions">
         <DropdownItem className="dropdown__dashboard" key="Dashboard">
@@ -50,8 +76,6 @@ export default function ConnectWalletButton() {
       </DropdownMenu>
     </Dropdown>
   ) : (
-    <button type="button" className="connectWallet" onClick={requestConnect}>
-      Connect Wallet
-    </button>
+    <StyledButton onClick={requestConnect}>Connect Wallet</StyledButton>
   );
 }
