@@ -12,7 +12,7 @@ function Header({ title }: HeaderProps) {
       <div className="header__logo">
         <Link href="/"> TXhero</Link>
       </div>
-      <div className="header__FAQ">{title}</div>
+      <div className="header__pagetitle text-lime-300 text-2xl font-normal">{title}</div>
       <div className="header__connectwallet">
         <ConnectWalletButton />
       </div>

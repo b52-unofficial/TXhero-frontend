@@ -18,7 +18,7 @@ import svgItemDot from '../../../public/icons/ItemDot.svg';
 
 export default function UserDashboard() {
   const { account, isActive } = useWeb3React();
-  const [period, setPeriod] = useState<UserTransactionChartInfoParams['period']>(`1m`);
+  const [period, setPeriod] = useState<UserTransactionChartInfoParams['period']>(`1w`);
   const { data: metaData } = useGetUserMetadataQuery(account, { skip: !account });
   const { data: txData } = useGetUserTransactionsQuery(account, { skip: !account });
   const { data: chartData } = useGetUserTransactionChartInfoQuery({ address: account, period }, { skip: !account });
@@ -84,13 +84,22 @@ export default function UserDashboard() {
                   </div>
                   <div className="grow shrink basis-0 h-[19px] flex-col justify-end items-end gap-3 inline-flex">
                     <div className="flex gap-2">
-                      <button className="text-lime-300 text-sm font-medium" onClick={() => setPeriod(`1w`)}>
+                      <button
+                        className={`${period === `1w` ? `text-lime-300` : `text-zinc-500`} text-sm font-medium`}
+                        onClick={() => setPeriod(`1w`)}
+                      >
                         1W
                       </button>
-                      <button className="text-zinc-500 text-sm font-medium" onClick={() => setPeriod(`1m`)}>
+                      <button
+                        className={`${period === `1m` ? `text-lime-300` : `text-zinc-500`} text-sm font-medium`}
+                        onClick={() => setPeriod(`1m`)}
+                      >
                         1M
                       </button>
-                      <button className="text-zinc-500 text-sm font-medium" onClick={() => setPeriod(`3m`)}>
+                      <button
+                        className={`${period === `3m` ? `text-lime-300` : `text-zinc-500`} text-sm font-medium`}
+                        onClick={() => setPeriod(`3m`)}
+                      >
                         3M
                       </button>
                     </div>
