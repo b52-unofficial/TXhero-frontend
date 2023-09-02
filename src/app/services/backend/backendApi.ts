@@ -13,13 +13,13 @@ const backendApi = createApi({
     getUserTransactions: builder.query<UserTransactionResponse[], string | undefined>({
       query: (address) => `tx/user?address=${address}`,
     }),
-    getCurrentRound: builder.query<RoundResponse, string>({
+    getCurrentRound: builder.query<RoundResponse, void>({
       query: () => `bid/current_round`,
     }),
-    getRound: builder.query<RoundResponse, string>({
+    getRound: builder.query<RoundResponse, number>({
       query: (round) => `bid/rounds?round=${round}`,
     }),
-    getRoundBids: builder.query<RoundBidResponse[], string>({
+    getRoundBids: builder.query<RoundBidResponse[], number>({
       query: (round) => `rounds/${round}/bids`,
     }),
     getUserTransactionChartInfo: builder.query<
