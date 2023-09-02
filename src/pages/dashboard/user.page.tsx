@@ -139,9 +139,11 @@ export default function UserDashboard() {
                     <div className="w-9 h-[17px]" />
                   </div>
                   {txData ? (
-                    txData.map((tx) => (
+                    txData.map((tx, index) => (
                       <div
-                        className="pl-6 py-3 bg-zinc-900 rounded-[18px] justify-start items-center gap-8 inline-flex"
+                        className={`pl-6 py-3 rounded-[18px] justify-start items-center gap-8 inline-flex ${
+                          index % 2 === 0 ? `bg-zinc-900` : ``
+                        }}`}
                         key={tx.txHash}
                       >
                         <div className="rounded-sm justify-start items-center gap-5 flex">
@@ -163,10 +165,17 @@ export default function UserDashboard() {
                           </div>
                           <div className="w-[200px] h-[25px] relative">
                             <div className="w-[200px] h-[25px] left-0 top-0 absolute" />
-                            <div className="w-[109px] h-[25px] px-3 py-1 left-0 top-0 absolute bg-zinc-800 rounded-[10px] justify-center items-center gap-2.5 inline-flex">
-                              <div className="w-[7px] h-[7px] bg-lime-300 rounded-[26px]" />
-                              <div className="text-lime-300 text-sm font-medium">{tx.status}</div>
-                            </div>
+                            {tx.status === `confirmed` ? (
+                              <div className="w-[109px] h-[25px] px-3 py-1 left-0 top-0 absolute bg-zinc-800 rounded-[10px] justify-center items-center gap-2.5 inline-flex">
+                                <div className="w-[7px] h-[7px] bg-lime-300 rounded-[26px]" />
+                                <div className="text-lime-300 text-sm font-medium">{tx.status}</div>
+                              </div>
+                            ) : (
+                              <div className="w-[109px] h-[25px] px-3 py-1 left-0 top-0 absolute bg-zinc-800 rounded-[10px] justify-center items-center gap-2.5 inline-flex">
+                                <div className="w-[7px] h-[7px] bg-neutral-500 rounded-[26px]" />
+                                <div className="text-neutral-500 text-sm font-medium">{tx.status}</div>
+                              </div>
+                            )}
                           </div>
                           <div className="w-[163px] h-[17px] relative">
                             <div className="w-[121px] h-[17px] left-0 top-0 absolute" />
