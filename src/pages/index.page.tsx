@@ -1,14 +1,48 @@
+import { useWeb3React } from '@web3-react/core';
 import Image from 'next/image';
+import { useCallback } from 'react';
 import CountUp from 'react-countup';
 import { toast } from 'react-toastify';
 
 import BasicLayout from '@/layouts/BasicLayout';
 
 export default function Home() {
+  const { provider, chainId } = useWeb3React();
+
   function copyText(entryText: string) {
     navigator.clipboard.writeText(entryText);
     toast.success(`copied to clipboard!`);
   }
+
+  const addEthereumChain = useCallback(async () => {
+    if (!provider) {
+      console.error(`provider not found`);
+      return;
+    }
+    if (!chainId) {
+      console.error(`chainId not found`);
+      return;
+    }
+    const targetChainId = Number(process.env.NEXT_PUBLIC_CHAIN_ID);
+    const chainHexString = `0x` + targetChainId.toString(16);
+    try {
+      await provider.send(`wallet_addEthereumChain`, [
+        {
+          chainId: chainHexString,
+          chainName: process.env.NEXT_PUBLIC_NETWORK_NAME,
+          rpcUrls: [process.env.NEXT_PUBLIC_RPC_URL],
+          nativeCurrency: {
+            name: process.env.NEXT_PUBLIC_CURRENCY_NAME,
+            symbol: process.env.NEXT_PUBLIC_CURRENCY_SYMBOL,
+            decimals: 18,
+          },
+          blockExplorerUrls: [process.env.NEXT_PUBLIC_BLOCK_EXPLORER_URL],
+        },
+      ]);
+    } catch (addError) {
+      // handle "add" error
+    }
+  }, [chainId, provider]);
 
   return (
     <BasicLayout>
@@ -107,7 +141,9 @@ export default function Home() {
           <div className="landing__connectContainer">
             <h1 className="landing__rpctitle">Click to add to your client</h1>
             <h2 className="landing__rpctitle2">Tx Hero (Ethereum Goerli Testnet)</h2>
-            <button className="landing__clickConnect">Add to Client</button>
+            <button className="landing__clickConnect" onClick={addEthereumChain}>
+              Add to Client
+            </button>
           </div>
           <div className="landing__connectContainer">
             <h1 className="landing__rpctitle">Or manually add:</h1>

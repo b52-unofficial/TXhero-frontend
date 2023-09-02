@@ -17,6 +17,7 @@
     "@reduxjs/toolkit": "^1.9.5",
     "@web3-react/core": "^8.0.36-beta.0",
     "@web3-react/metamask": "^8.0.31-beta.0",
+    "@web3-react/types": "^8.0.21-beta.0",
     "autoprefixer": "^10.4.15",
     "chart.js": "^4.4.0",
     "dayjs": "^1.11.9",

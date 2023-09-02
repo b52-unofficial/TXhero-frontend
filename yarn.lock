@@ -2277,7 +2277,14 @@
     "@web3-react/types" "^8.2.2"
     zustand "4.4.0"
 
-"@web3-react/types@^8.0.21-beta.0", "@web3-react/types@^8.2.2":
+"@web3-react/types@^8.0.21-beta.0":
+  version "8.0.21-beta.0"
+  resolved "https://registry.yarnpkg.com/@web3-react/types/-/types-8.0.21-beta.0.tgz#a8c1437f343a5d2955561f4b204190ad3cdf9244"
+  integrity sha512-eOkRtMhB1WDJZPQPDHKRydo5n+2ZEYbYPNm2jmgg2CcfNO2w1gav8OQISvABVW/ExQSaF9iKveGQd897xFLdcQ==
+  dependencies:
+    zustand "^4.0.0"
+
+"@web3-react/types@^8.2.2":
   version "8.2.2"
   resolved "https://registry.npmjs.org/@web3-react/types/-/types-8.2.2.tgz"
   integrity sha512-PrPrJNjJhUX3lL/365llAZwY0bpUm9N52OjGMFyzCIX7IR13f7WLUk/LyQa9ALneCBu3cJUVTZANuFdqdREuvw==

@@ -1,4 +1,15 @@
-import { Chart, CategoryScale, LinearScale, BarElement, BarController, Legend, Tooltip, Title } from 'chart.js';
+import {
+  Chart,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  BarController,
+  Legend,
+  Tooltip,
+  Title,
+  ChartData,
+} from 'chart.js';
+import dayjs from 'dayjs';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { Bar } from 'react-chartjs-2';
 
@@ -25,11 +36,11 @@ export default function DailyRebateChart({ data }: DailyRebateChartProps) {
   const [onMouseHover, setOnMouseHover] = useState<boolean>(false);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
-  const labels = data.map((item) => item.date);
+  const labels = data.map((item) => dayjs(item.date).format(`MM/DD`));
   const gasFeesArr = data.map((item) => item.totalGasAmt);
   const rebatesArr = data.map((item) => item.totalRebateAmt);
 
-  const chartData = {
+  const chartData: ChartData<'bar', string[], string> = {
     labels: labels,
     datasets: [
       {
@@ -38,6 +49,7 @@ export default function DailyRebateChart({ data }: DailyRebateChartProps) {
         backgroundColor: BG_COLOR[0].dark,
         barThickness: BAR_THICKNESS,
         borderRadius: BAR_BORDER_RADIUS,
+        order: 2,
       },
       {
         label: `Rebates`,
@@ -45,6 +57,7 @@ export default function DailyRebateChart({ data }: DailyRebateChartProps) {
         backgroundColor: BG_COLOR[1].dark,
         barThickness: BAR_THICKNESS,
         borderRadius: BAR_BORDER_RADIUS,
+        order: 1,
       },
     ],
   };

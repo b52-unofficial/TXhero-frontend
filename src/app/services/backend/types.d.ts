@@ -1,27 +1,28 @@
 interface LandingPageMetadataResponse {
-  totalRewardAmt: string;
-  avgRewardAmt: string;
+  totalRewardAmt: number;
+  avgRewardAmt: number;
 }
 
 interface UserPageMetadataResponse {
-  totalTxAmt: string;
-  totalGasAmt: string;
-  totalRewardAmt: string;
+  totalTxCnt: string;
+  totalGasAmt: number;
+  totalRewardAmt: number;
 }
 
 interface UserTransactionResponse {
   id: number;
   txHash: string;
-  gasFeeAmt: string;
+  gasFeeAmt: number;
   fromAddr: string;
   timestamp: string;
   status: TransactionStatus;
-  rewardAmt: string;
+  reward: number;
   claimable: boolean;
 }
 
 interface RoundResponse {
   round: number;
+  totalTxCount: number;
   endTimestamp: string;
 }
 
@@ -35,10 +36,10 @@ interface RoundBidResponse {
 
 interface UserTransactionChartInfoParams {
   address: string;
-  period: '1w' | '1m' | '3m';
+  period: string;
 }
 interface UserTransactionChartInfoResponse {
   date: string;
-  totalGasAmt: string;
-  totalRebateAmt: string;
+  totalGasAmt: number;
+  totalRebateAmt: number;
 }

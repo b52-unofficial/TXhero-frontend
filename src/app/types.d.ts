@@ -1,1 +1,1 @@
-type TransactionStatus = 'confirmed' | 'unconfirmed' | 'failed';
+type TransactionStatus = 0 | 1;

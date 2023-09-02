@@ -11,17 +11,27 @@ import {
 import ConnectWalletButton from '@/components/ConnectWalletButton';
 import DailyRebateChart from '@/components/DailyRebateChart';
 import CardItem from '@/components/StatCard/CardItem';
+import { formatETH } from '@/helpers/format';
 import DashboardLayout from '@/layouts/DashboardLayout';
 
 import svgEthereum from '../../../public/icons/Ethereum.svg';
 import svgItemDot from '../../../public/icons/ItemDot.svg';
 
+const PERIDO_MAP = {
+  '1w': `1-week`,
+  '1m': `1-month`,
+  '3m': `3-month`,
+};
+
 export default function UserDashboard() {
   const { account, isActive } = useWeb3React();
-  const [period, setPeriod] = useState<UserTransactionChartInfoParams['period']>(`1w`);
+  const [period, setPeriod] = useState<'1w' | '1m' | '3m'>(`1w`);
   const { data: metaData } = useGetUserMetadataQuery(account, { skip: !account });
   const { data: txData } = useGetUserTransactionsQuery(account, { skip: !account });
-  const { data: chartData } = useGetUserTransactionChartInfoQuery({ address: account, period }, { skip: !account });
+  const { data: chartData } = useGetUserTransactionChartInfoQuery(
+    { address: account, period: PERIDO_MAP[period] },
+    { skip: !account },
+  );
 
   return (
     <DashboardLayout title="User Dashboard">
@@ -42,13 +52,13 @@ export default function UserDashboard() {
           {/* Panel Container */}
           <div className="w-[1080px] px-[30px] pt-[30px] pb-[7.50px] bg-stone-950 bg-opacity-90 rounded-3xl shadow border border-neutral-500 flex-col justify-center items-start gap-4 flex mx-auto my-2">
             <div className="w-[1020px] justify-start items-end gap-2 inline-flex">
-              <CardItem title="Total Tx" subtitle={metaData ? metaData.totalTxAmt : `-`} />
+              <CardItem title="Total Tx" subtitle={metaData ? metaData.totalTxCnt : `-`} />
               <CardItem
                 title="Total Gas"
                 subtitle={
                   <>
                     <Image src={svgEthereum} alt="" width={24} height={24} />
-                    {metaData ? `${metaData.totalGasAmt} ETH` : `-`}
+                    {metaData ? formatETH(metaData.totalGasAmt, 3) : `-`}
                   </>
                 }
               />
@@ -57,7 +67,7 @@ export default function UserDashboard() {
                 subtitle={
                   <>
                     <Image src={svgEthereum} alt="" width={24} height={24} />
-                    {metaData ? `${metaData.totalRewardAmt} ETH` : `-`}
+                    {metaData ? formatETH(metaData.totalRewardAmt, 3) : `-`}
                   </>
                 }
               />
@@ -66,7 +76,7 @@ export default function UserDashboard() {
                 subtitle={
                   <>
                     <Image src={svgEthereum} alt="" width={24} height={24} />
-                    {metaData ? `${metaData.totalRewardAmt} ETH` : `-`}
+                    {metaData ? formatETH(metaData.totalRewardAmt, 3) : `-`}
                     <button className="grow shrink basis-0 h-[29px] px-4 py-1.5 rounded-lg border border-neutral-500 justify-center items-center gap-2.5 flex">
                       <div className="text-white text-sm font-medium">Claim</div>
                     </button>
@@ -112,9 +122,9 @@ export default function UserDashboard() {
             </div>
 
             <div className="self-stretch min-h-[675.50px] flex-col justify-center items-center gap-[7.50px] flex">
-              <div className="self-stretch h-[651px] px-[30px] py-8 bg-stone-950 rounded-3xl border border-neutral-500 flex-col justify-start items-start gap-8 flex">
+              <div className="self-stretch px-[30px] py-8 bg-stone-950 rounded-3xl border border-neutral-500 flex-col justify-start items-start gap-8 flex">
                 <div className="flex-col justify-start items-start gap-2 flex">
-                  <div className="self-stretch grow shrink basis-0 justify-start items-start gap-5 inline-flex">
+                  <div className="self-stretch grow shrink basis-0 justify-start items-start gap-5 inline-flex py-4">
                     <div className="w-1 h-[17px]" />
                     <div className="w-[100px] h-[17px] relative">
                       <div className="w-[100px] h-[17px] left-0 top-0 absolute" />
@@ -153,7 +163,7 @@ export default function UserDashboard() {
                           </div>
                           <div className="w-[200px] h-[17px] relative">
                             <div className="w-[200px] h-[17px] left-0 top-0 absolute" />
-                            <div className="w-[167.14px] left-0 top-0 absolute text-white text-sm font-medium">
+                            <div className="w-[167.14px] left-0 top-0 absolute text-white text-sm font-medium text-ellipsis overflow-hidden">
                               {tx.txHash}
                             </div>
                           </div>
@@ -165,22 +175,22 @@ export default function UserDashboard() {
                           </div>
                           <div className="w-[200px] h-[25px] relative">
                             <div className="w-[200px] h-[25px] left-0 top-0 absolute" />
-                            {tx.status === `confirmed` ? (
+                            {tx.status === 1 ? (
                               <div className="w-[109px] h-[25px] px-3 py-1 left-0 top-0 absolute bg-zinc-800 rounded-[10px] justify-center items-center gap-2.5 inline-flex">
                                 <div className="w-[7px] h-[7px] bg-lime-300 rounded-[26px]" />
-                                <div className="text-lime-300 text-sm font-medium">{tx.status}</div>
+                                <div className="text-lime-300 text-sm font-medium">Confirmed</div>
                               </div>
                             ) : (
                               <div className="w-[109px] h-[25px] px-3 py-1 left-0 top-0 absolute bg-zinc-800 rounded-[10px] justify-center items-center gap-2.5 inline-flex">
                                 <div className="w-[7px] h-[7px] bg-neutral-500 rounded-[26px]" />
-                                <div className="text-neutral-500 text-sm font-medium">{tx.status}</div>
+                                <div className="text-neutral-500 text-sm font-medium">Unonfirmed</div>
                               </div>
                             )}
                           </div>
                           <div className="w-[163px] h-[17px] relative">
                             <div className="w-[121px] h-[17px] left-0 top-0 absolute" />
                             <div className="w-[163px] left-0 top-0 absolute text-white text-sm font-medium">
-                              {tx.rewardAmt} ETH
+                              {formatETH(tx.reward)} ETH
                             </div>
                           </div>
                         </div>
