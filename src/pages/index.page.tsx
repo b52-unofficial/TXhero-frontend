@@ -158,8 +158,8 @@ export default function Home() {
 
               <div className="rpcInfo__row2">New RPC URL</div>
               <div className="rpcInfo__col2">
-                https://rpc.mevblocker.io
-                <button onClick={() => copyText(`https://rpc.mevblocker.io`)}>
+                https://rpc-goerli.txhero.io
+                <button onClick={() => copyText(`https://rpc.txhero.io`)}>
                   <Image className="copy" src="/images/copy.svg" alt="copy" width={15} height={15} />
                 </button>
               </div>
