@@ -207,7 +207,7 @@ export default function UserDashboard() {
                             ) : (
                               <div className="w-[109px] h-[25px] px-3 py-1 left-0 top-0 absolute bg-zinc-800 rounded-[10px] justify-center items-center gap-2.5 inline-flex">
                                 <div className="w-[7px] h-[7px] bg-neutral-500 rounded-[26px]" />
-                                <div className="text-neutral-500 text-sm font-medium">Unonfirmed</div>
+                                <div className="text-neutral-500 text-sm font-medium">Unconfirmed</div>
                               </div>
                             )}
                           </div>
