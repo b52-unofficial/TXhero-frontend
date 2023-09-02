@@ -33,18 +33,6 @@ export default function UserDashboard() {
     { skip: !account },
   );
 
-  const requestConnect = useCallback(async () => {
-    try {
-      await connector.activate();
-    } catch (e) {
-      console.error(e);
-    }
-  }, [connector]);
-
-  useEffect(() => {
-    requestConnect();
-  }, [requestConnect]);
-
   const transactions = txData
     ? [...txData].sort((a, b) => {
         if (b.timestamp < a.timestamp) {
@@ -56,6 +44,30 @@ export default function UserDashboard() {
         return 0;
       })
     : [];
+
+  const charts = chartData
+    ? [...chartData].sort((a, b) => {
+        if (b.date < a.date) {
+          return 1;
+        }
+        if (b.date > a.date) {
+          return -1;
+        }
+        return 0;
+      })
+    : [];
+
+  const requestConnect = useCallback(async () => {
+    try {
+      await connector.activate();
+    } catch (e) {
+      console.error(e);
+    }
+  }, [connector]);
+
+  useEffect(() => {
+    requestConnect();
+  }, [requestConnect]);
 
   return (
     <DashboardLayout title="User Dashboard">
@@ -141,7 +153,7 @@ export default function UserDashboard() {
                 </div>
               </div>
               <div className="self-stretch justify-end items-end gap-2.5 inline-flex">
-                {chartData && <DailyRebateChart data={chartData} />}
+                {chartData && <DailyRebateChart data={charts} />}
               </div>
             </div>
 
