@@ -40,7 +40,7 @@ export default function DailyRebateChart({ data }: DailyRebateChartProps) {
   const gasFeesArr = data.map((item) => item.totalGasAmt);
   const rebatesArr = data.map((item) => item.totalRebateAmt);
 
-  const chartData: ChartData<'bar', string[], string> = {
+  const chartData: ChartData<'bar', string | number[], string | number> = {
     labels: labels,
     datasets: [
       {
@@ -181,15 +181,17 @@ export default function DailyRebateChart({ data }: DailyRebateChartProps) {
               },
               title: (tooltipItems) => {
                 setHoveredIndex(tooltipItems[0].dataIndex);
-                return chartData.labels[tooltipItems[0].dataIndex];
+                return chartData.labels ? chartData.labels[tooltipItems[0].dataIndex] + `` : ``;
               },
               afterLabel: (tooltipItem) => {
                 const datasetIndex = tooltipItem.datasetIndex;
                 const dataIndex = tooltipItem.dataIndex;
-                const datasetValue = chartData.datasets[datasetIndex].data[dataIndex];
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                const datasetValue: any = chartData.datasets[datasetIndex].data[dataIndex];
                 if (datasetIndex === 0) return `${datasetValue} ETH`;
                 else {
-                  const previousDatasetValue = chartData.datasets[datasetIndex - 1].data[dataIndex];
+                  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                  const previousDatasetValue: any = chartData.datasets[datasetIndex - 1].data[dataIndex];
                   const difference = datasetValue - previousDatasetValue;
                   return `${difference} ETH`;
                 }
