@@ -67,7 +67,7 @@ export default function UserDashboard() {
             <div className="justify-center items-center gap-5 flex">
               <Image src={svgItemDot} width={24} height={24} alt="" />
               <div className="text-black text-sm font-medium">
-                Rewards will be distributed based on the transaction fees incurred from the previous day, and they can
+                Rebates will be distributed based on the transaction fees incurred from the previous day, and they can
                 be claimed every day at UTC 00:00.
               </div>
             </div>
