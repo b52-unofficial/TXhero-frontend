@@ -1,7 +1,7 @@
 import { useWeb3React } from '@web3-react/core';
 import dayjs from 'dayjs';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 import {
   useGetUserMetadataQuery,
@@ -24,7 +24,7 @@ const PERIDO_MAP = {
 };
 
 export default function UserDashboard() {
-  const { account, isActive } = useWeb3React();
+  const { connector, account, isActive } = useWeb3React();
   const [period, setPeriod] = useState<'1w' | '1m' | '3m'>(`1w`);
   const { data: metaData } = useGetUserMetadataQuery(account, { skip: !account });
   const { data: txData } = useGetUserTransactionsQuery(account, { skip: !account });
@@ -32,6 +32,19 @@ export default function UserDashboard() {
     { address: account, period: PERIDO_MAP[period] },
     { skip: !account },
   );
+
+  const requestConnect = useCallback(async () => {
+    try {
+      await connector.activate();
+    } catch (e) {
+      console.error(e);
+    }
+  }, [connector]);
+
+  useEffect(() => {
+    requestConnect();
+  }, [requestConnect]);
+
   const transactions = txData
     ? [...txData].sort((a, b) => {
         if (b.timestamp < a.timestamp) {
@@ -74,7 +87,7 @@ export default function UserDashboard() {
                 }
               />
               <CardItem
-                title="Total Reward"
+                title="Total Rebates"
                 subtitle={
                   <>
                     <Image src={svgEthereum} alt="" width={24} height={24} />
@@ -83,7 +96,7 @@ export default function UserDashboard() {
                 }
               />
               <CardItem
-                title="Unclaimed Rewards"
+                title="Unclaimed Rebates"
                 subtitle={
                   <>
                     <Image src={svgEthereum} alt="" width={24} height={24} />
@@ -155,7 +168,7 @@ export default function UserDashboard() {
                     </div>
                     <div className="w-14 h-[17px] relative">
                       <div className="w-12 h-[17px] left-0 top-0 absolute" />
-                      <div className="left-0 top-0 absolute text-white text-sm font-medium">Rewards</div>
+                      <div className="left-0 top-0 absolute text-white text-sm font-medium">Rebates</div>
                     </div>
                     <div className="w-9 h-[17px]" />
                   </div>
