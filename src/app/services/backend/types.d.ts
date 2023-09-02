@@ -32,3 +32,13 @@ interface RoundBidResponse {
   description: string;
   timestamp: string;
 }
+
+interface UserTransactionChartInfoParams {
+  address: string;
+  period: '1w' | '1m' | '3m';
+}
+interface UserTransactionChartInfoResponse {
+  date: string;
+  totalGasAmt: string;
+  totalRebateAmt: string;
+}

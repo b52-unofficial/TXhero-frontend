@@ -24,6 +24,9 @@ export default function DashboardLayout({ children, title }: PropsWithChildren &
   return (
     <main className="min-h-screen flex flex-col">
       <Header title={title} />
+      <div id="stars" />
+      <div id="stars2" />
+      <div id="stars3" />
       {children}
     </main>
   );

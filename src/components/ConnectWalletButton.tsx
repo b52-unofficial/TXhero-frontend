@@ -55,22 +55,18 @@ export default function ConnectWalletButton() {
     <Dropdown>
       <DropdownTrigger>
         <StyledButton>
-          <Image
-            className="inline-block rounded-full ring-2 ring-white mr-2"
-            src={imgPlaceholder}
-            width={22}
-            height={22}
-            alt=""
-          />
-          {account.substring(0, 6)}...{account.substring(account.length - 4)}
+          <Image className="inline-block rounded-full mr-2" src={imgPlaceholder} width={22} height={22} alt="" />
+          {account.substring(0, 4)}...{account.substring(account.length - 4)}
           <Image src={svgChevronDown} className="inline-block ml-2" width={8} height={8} alt="" />
         </StyledButton>
       </DropdownTrigger>
       <DropdownMenu className="dropdown" aria-label="Static Actions">
         <DropdownItem className="dropdown__dashboard" key="Dashboard">
-          <Link href="/dashboard/user">User Dashboard</Link>
+          <Link href="/dashboard/user" className="font-sans">
+            User Dashboard
+          </Link>
         </DropdownItem>
-        <DropdownItem className="dropdown__disconnect" key="disconnect" onClick={requestDisconnect}>
+        <DropdownItem className="dropdown__disconnect font-sans" key="disconnect" onClick={requestDisconnect}>
           Disconnect Wallet
         </DropdownItem>
       </DropdownMenu>
