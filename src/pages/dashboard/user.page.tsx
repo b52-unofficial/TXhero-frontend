@@ -32,6 +32,17 @@ export default function UserDashboard() {
     { address: account, period: PERIDO_MAP[period] },
     { skip: !account },
   );
+  const transactions = txData
+    ? [...txData].sort((a, b) => {
+        if (b.timestamp < a.timestamp) {
+          return -1;
+        }
+        if (b.timestamp > a.timestamp) {
+          return 1;
+        }
+        return 0;
+      })
+    : [];
 
   return (
     <DashboardLayout title="User Dashboard">
@@ -148,8 +159,8 @@ export default function UserDashboard() {
                     </div>
                     <div className="w-9 h-[17px]" />
                   </div>
-                  {txData ? (
-                    txData.map((tx, index) => (
+                  {transactions ? (
+                    transactions.map((tx, index) => (
                       <div
                         className={`pl-6 py-3 rounded-[18px] justify-start items-center gap-8 inline-flex ${
                           index % 2 === 0 ? `bg-zinc-900` : ``
@@ -190,7 +201,7 @@ export default function UserDashboard() {
                           <div className="w-[163px] h-[17px] relative">
                             <div className="w-[121px] h-[17px] left-0 top-0 absolute" />
                             <div className="w-[163px] left-0 top-0 absolute text-white text-sm font-medium">
-                              {formatETH(tx.reward)} ETH
+                              {tx.reward ? `${formatETH(tx.reward)} ETH` : ``}
                             </div>
                           </div>
                         </div>
