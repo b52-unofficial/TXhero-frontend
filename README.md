@@ -1,4 +1,4 @@
-![2  Send TX](https://github.com/b52-unofficial/TXhero-frontend/assets/77462765/bed7138a-9b57-4194-907d-19b6a7007ae0)# TX Hero Frontend
+# TX Hero Frontend
 ![image](https://github.com/b52-unofficial/TXhero-frontend/assets/77462765/8a431980-1390-43f3-a9a7-6322618bce62)
 
 ## Our Team
