@@ -188,12 +188,13 @@ export default function DailyRebateChart({ data }: DailyRebateChartProps) {
                 const dataIndex = tooltipItem.dataIndex;
                 // eslint-disable-next-line @typescript-eslint/no-explicit-any
                 const datasetValue: any = chartData.datasets[datasetIndex].data[dataIndex];
-                if (datasetIndex === 0) return `${datasetValue} ETH`;
-                else {
+                if (datasetIndex === 1) {
                   // eslint-disable-next-line @typescript-eslint/no-explicit-any
                   const previousDatasetValue: any = chartData.datasets[datasetIndex - 1].data[dataIndex];
                   const difference = datasetValue - previousDatasetValue;
                   return `${difference} ETH`;
+                } else {
+                  return `${datasetValue} ETH`;
                 }
               },
               label: (tooltipItem) => {

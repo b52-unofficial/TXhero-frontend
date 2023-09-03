@@ -7,6 +7,7 @@ interface UserPageMetadataResponse {
   totalTxCnt: string;
   totalGasAmt: number;
   totalRewardAmt: number;
+  totalClaimableAmt: number;
 }
 
 interface UserTransactionResponse {

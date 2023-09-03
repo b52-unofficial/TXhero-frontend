@@ -112,7 +112,7 @@ export default function UserDashboard() {
                 subtitle={
                   <>
                     <Image src={svgEthereum} alt="" width={24} height={24} />
-                    {metaData ? formatETH(metaData.totalRewardAmt, 3) : `-`}
+                    {metaData ? formatETH(metaData.totalClaimableAmt, 3) : `-`}
                     <button className="grow shrink basis-0 h-[29px] px-4 py-1.5 rounded-lg border border-neutral-500 justify-center items-center gap-2.5 flex">
                       <div className="text-white text-sm font-medium">Claim</div>
                     </button>
