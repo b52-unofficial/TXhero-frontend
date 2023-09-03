@@ -1,4 +1,6 @@
 # TX Hero Frontend
+![image](https://github.com/b52-unofficial/TXhero-frontend/assets/77462765/8a431980-1390-43f3-a9a7-6322618bce62)
+
 
 ## Prerequisite
 
