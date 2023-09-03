@@ -1,38 +1,20 @@
 # TX Hero Frontend
 ![image](https://github.com/b52-unofficial/TXhero-frontend/assets/77462765/8a431980-1390-43f3-a9a7-6322618bce62)
 
-## Our Team
-<table>
- <tr>
-  <td align='center'>Name</td>
-  <td align='center'>Position</td>
- </tr>
- 
- <tr>
-  <td align='center'>Joomanzi</td>
-  <td align='center'>Back-end</td>
- </tr>   
- 
- <tr>
-  <td align='center'>Darron</td>
-  <td align='center'>Front-end</td>
- </tr>
+### Background and Problem Statement
+When PBS (Proposer-builder Separation) settles down, builders will solidify their profit centralization using Exclusive Order Flow (EOF). The issue of builder profit centralization has evolved into a form that’s incongruent with Ethereum's core value of decentralization, concerning issues such as censorship resistance and collusion.
+### Goals
+* Solve the EOF problem stated above and build a more censorship-resistant network. <br>
+* Transform Exclusive Order Flow into a transparent, trustless auction. <br>
+* Share transaction values with the end user, who is the transaction owner. <br>
 
-  <tr>
-  <td align='center'>Hudson</td>
-  <td align='center'>Back-end</td>
- </tr>
- 
-  <tr>
-  <td align='center'>Ellie</td>
-  <td align='center'>Back-end</td>
- </tr>
+### Target Market and Audience
+![image](https://github.com/b52-unofficial/TXhero-frontend/assets/77462765/27c6d71e-e780-4d78-9b55-727f73cbb8ee)
+TX Hero targets general transactions and shares the builder's profit with transaction owners. The market can be divide into four: (1) no MEV / no profit share, (2) MEV / no profit share, (3) MEV / profit share, and (4) no MEV / profit share. (1) applies to the public mempool that exists today. (2) indicates the MEV protection methods like MEV-minimization. (3) is MEV-share by Flashbots, who share the MEV profits with users and searchers. We aim to target (4), where we protect users from harmful MEVs and share profits with the users.
 
-   <tr>
-  <td align='center'>Jessie</td>
-  <td align='center'>Design</td>
- </tr>
-</table>
+### Architecture
+![image](https://github.com/b52-unofficial/TXhero-frontend/assets/77462765/5ce820db-2d79-4ad4-a5b8-4f4071779c9c)
+
 
 ## Demo-landing page
 <img width="1512" alt="Screenshot 2023-09-03 at 11 03 07 AM" src="https://github.com/b52-unofficial/TXhero-frontend/assets/77462765/8fb5dce3-54f9-4ef6-b2c3-75a9f292fcc6">
