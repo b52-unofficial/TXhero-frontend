@@ -1,7 +1,38 @@
 # TX Hero Frontend
 ![image](https://github.com/b52-unofficial/TXhero-frontend/assets/77462765/8a431980-1390-43f3-a9a7-6322618bce62)
 
+## Our Team
+<table>
+ <tr>
+  <td align='center'>Name</td>
+  <td align='center'>Position</td>
+ </tr>
+ 
+ <tr>
+  <td align='center'>Joomanzi</td>
+  <td align='center'>Back-end</td>
+ </tr>   
+ 
+ <tr>
+  <td align='center'>Darron</td>
+  <td align='center'>Front-end</td>
+ </tr>
 
+  <tr>
+  <td align='center'>Hudson</td>
+  <td align='center'>Back-end</td>
+ </tr>
+ 
+  <tr>
+  <td align='center'>Ellie</td>
+  <td align='center'>Back-end</td>
+ </tr>
+
+   <tr>
+  <td align='center'>Jessie</td>
+  <td align='center'>Design</td>
+ </tr>
+</table>
 ## Prerequisite
 
 - VScode (with `ESlint`, `PostCSS Language Support` plugin installed)
