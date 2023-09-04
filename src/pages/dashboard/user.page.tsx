@@ -1,4 +1,3 @@
-import { useWeb3React } from '@web3-react/core';
 import dayjs from 'dayjs';
 import Image from 'next/image';
 import { useCallback, useEffect, useState } from 'react';
@@ -12,6 +11,7 @@ import ConnectWalletButton from '@/components/ConnectWalletButton';
 import DailyRebateChart from '@/components/DailyRebateChart';
 import CardItem from '@/components/StatCard/CardItem';
 import { formatETH } from '@/helpers/format';
+import useMetamask from '@/hooks/useMetamask';
 import DashboardLayout from '@/layouts/DashboardLayout';
 
 import svgEthereum from '../../../public/icons/Ethereum.svg';
@@ -24,7 +24,7 @@ const PERIDO_MAP = {
 };
 
 export default function UserDashboard() {
-  const { connector, account, isActive } = useWeb3React();
+  const { activate, account } = useMetamask();
   const [period, setPeriod] = useState<'1w' | '1m' | '3m'>(`1w`);
   const { data: metaData } = useGetUserMetadataQuery(account, { skip: !account });
   const { data: txData } = useGetUserTransactionsQuery(account, { skip: !account });
@@ -59,11 +59,11 @@ export default function UserDashboard() {
 
   const requestConnect = useCallback(async () => {
     try {
-      await connector.activate();
+      await activate();
     } catch (e) {
       console.error(e);
     }
-  }, [connector]);
+  }, [activate]);
 
   useEffect(() => {
     requestConnect();
@@ -71,7 +71,7 @@ export default function UserDashboard() {
 
   return (
     <DashboardLayout title="User Dashboard">
-      {isActive ? (
+      {account ? (
         <div className="px-48 z-10">
           {/* Notice */}
           <div className="w-[1080px] h-10 px-5 py-2 bg-lime-300 rounded-xl justify-center items-center gap-2.5 flex mx-auto">

@@ -14,14 +14,16 @@ dayjs.extend(duration);
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <Provider store={store}>
-      <WalletProvider>
-        <Head>
-          <title>Transaction Hero</title>
-        </Head>
-        <Component {...pageProps} />
-        <ToastContainer />
-      </WalletProvider>
-    </Provider>
+    <>
+      <Head>
+        <title>Transaction Hero</title>
+      </Head>
+      <Provider store={store}>
+        <WalletProvider>
+          <Component {...pageProps} />
+          <ToastContainer />
+        </WalletProvider>
+      </Provider>
+    </>
   );
 }

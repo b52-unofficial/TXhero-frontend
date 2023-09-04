@@ -1,8 +1,9 @@
 import { Dropdown, DropdownTrigger, DropdownItem, DropdownMenu } from '@nextui-org/react';
-import { useWeb3React } from '@web3-react/core';
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { ButtonHTMLAttributes, useCallback } from 'react';
+
+import useMetamask from '@/hooks/useMetamask';
 
 import svgChevronDown from '../../public/icons/ChevronDown.svg';
 import imgPlaceholder from '../../public/images/profile-placeholder.png';
@@ -22,34 +23,30 @@ const StyledButton = React.forwardRef<HTMLButtonElement, ButtonHTMLAttributes<HT
 StyledButton.displayName = `StyledButton`;
 
 export default function ConnectWalletButton() {
-  const { connector, account, isActive } = useWeb3React();
+  const { account, activate, deactivate } = useMetamask();
   const requestConnect = useCallback(async () => {
-    if (!isActive) {
+    if (!account) {
       try {
-        await connector.activate();
+        await activate();
       } catch (e) {
         console.error(e);
       }
     } else {
       console.warn(`Already connected`);
     }
-  }, [connector, isActive]);
+  }, [account, activate]);
 
   const requestDisconnect = useCallback(async () => {
-    if (isActive) {
+    if (account) {
       try {
-        if (connector?.deactivate) {
-          await connector.deactivate();
-        } else {
-          await connector.resetState();
-        }
+        await deactivate();
       } catch (e) {
         console.error(e);
       }
     } else {
       console.warn(`Already disconnected`);
     }
-  }, [connector, isActive]);
+  }, [account, deactivate]);
 
   return account ? (
     <Dropdown>
